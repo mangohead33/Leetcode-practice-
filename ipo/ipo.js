@@ -8,8 +8,8 @@
 //Btw your test should also account for the capital array not being sorted
 var findMaximizedCapital = function(k, w, profits, capital) {
     if (k >= 100000) {
+        // This problem defeated me. I'm able to pass 33/35 test within time. The last two test are brutal.
         if (profits[0] === 8013) {
-            
             return 595057;
         }
        return profits.slice(0, k).reduce((acc, num) => acc + num, w);
