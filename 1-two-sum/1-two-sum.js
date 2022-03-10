@@ -14,10 +14,9 @@ var twoSum = function(nums, target) {
     if (nums.length === 2) {
         return [0, 1];
     }
-    let ind1 = 0
-    let ind2 = nums.length - 1;
+    let ind1;
+    let ind2;
     let answerFound = false;
- 
     for (let i = 0; i < nums.length; i++) {
         ind1 = i;
         for (let j = i + 1; j < nums.length; j++) {
