@@ -1,31 +1,34 @@
 var minRefuelStops = function(target, startFuel, stations) {
-    if (startFuel < target && (!stations.length || startFuel < stations[0][0])) {
-        return -1;
-    }
-    if (startFuel >= target) {
+     if (startFuel >= target) {
         return 0;
+    }
+    if (startFuel < target && (!stations.length || startFuel < stations[0][0])) {
+        // Check to see if we even have enough gas at all
+        return -1;
     }
     let targetReached = false;
     let count = 0;
     let totalFuel = startFuel;
-    let currentFuel = startFuel;
+    // Utilizing a double linked list to keep track of stations with most fuel, and which stations have already ebeen drained
     let tail = {val: stations[0][1],
                 hasFuel: true,
                 prev: null,
                 next: null
                };
     for (let i = 0; i < stations.length; i++) {
-        if (totalFuel >= target || targetReached) {
-            targetReached = true;
-            break;
-        }
-        
+        // if (totalFuel >= target || targetReached) {
+        //     targetReached = true;
+        //     break;
+        // }
+    
         let station = stations[i];
         if (i) {
+            // keep track of the stations with the most fuel
                 checkStations(station[1])
             }
 
         let nextStation = stations[i + 1] ? stations[i + 1] : false;
+        // check if we have enough fuel or if we're at the last stop
         if (nextStation) {
             if (totalFuel < nextStation[0]) {
                 let noMoreFuel = refillTank(tail, nextStation[0], target)
@@ -58,8 +61,7 @@ var minRefuelStops = function(target, startFuel, stations) {
         
         if (totalFuel >= target) {
                 targetReached = true;
-            } else if (totalFuel >= nextStop) {
-            } else {
+            } else if (totalFuel < nextStop) {
                 abortTrip = true;
             }
         return abortTrip;
@@ -88,7 +90,6 @@ var minRefuelStops = function(target, startFuel, stations) {
                         }
                         compare = compare.prev;
                         } else {
-                        //it's null
                         node.next = compare;
                         compare.prev = node;
                         break;
