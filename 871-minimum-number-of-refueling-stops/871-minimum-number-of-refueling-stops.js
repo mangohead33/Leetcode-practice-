@@ -16,11 +16,6 @@ var minRefuelStops = function(target, startFuel, stations) {
                 next: null
                };
     for (let i = 0; i < stations.length; i++) {
-        // if (totalFuel >= target || targetReached) {
-        //     targetReached = true;
-        //     break;
-        // }
-    
         let station = stations[i];
         if (i) {
             // keep track of the stations with the most fuel
