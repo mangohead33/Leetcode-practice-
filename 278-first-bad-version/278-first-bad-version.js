@@ -37,11 +37,7 @@ var solution = function(isBadVersion) {
                 start = mid + 1;
                 mid = findMid(start, end);
             }
-            // 0, 6 mid = 3
-            // 0 1 2 3 4 5 6
-            // 4,6 mid= 5
-            // 4,5
-            
+
         }
 
     };
