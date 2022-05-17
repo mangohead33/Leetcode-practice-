@@ -10,10 +10,6 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    // find the length of linked lsit
-    // determine if length is even or odd
-    // [node.next, node.next]
-    let midNode;
     let nodeArray = [head];
     let count = 1;
     let node = head.next;
@@ -22,8 +18,6 @@ var middleNode = function(head) {
         count++;
         node = node.next;
     }
-    
-    midNode = count % 2 ? nodeArray[Math.floor(count / 2)] : nodeArray[count / 2];
-    return midNode;
+    return count % 2 ? nodeArray[Math.floor(count / 2)] : nodeArray[count / 2];
     
 };
