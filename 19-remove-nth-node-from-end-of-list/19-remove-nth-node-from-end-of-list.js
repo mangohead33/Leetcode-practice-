@@ -11,22 +11,26 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
-    let count = 1;
-    let instantAccess = [head];
-    if (head.next) {
-        let nextNode = head.next;
-        while (nextNode) {
-            count++;
-            instantAccess.push(nextNode);
-            nextNode = nextNode.next;
-        }
+    // find length of linked list
+    // once we reach the end start couting backwards
+    if (!head.next) {
+        return null;
     }
-    if (count === n) {
+    let instAcc = [head];
+    let node = head.next;
+    while(node) {
+        instAcc.push(node);
+        node = node.next;
+    }
+    let modifyNode = instAcc.length -1 - n;
+
+    if (modifyNode >= 0) {
+        let nodePrev = instAcc[modifyNode];
+        nodePrev.next = nodePrev.next.next;
+    } else {
+
         return head.next;
     }
-    if (count > n) {
-        let nodePrior = instantAccess[count - 1 - n];
-        nodePrior.next = nodePrior.next.next;
-    }
     return head;
+ 
 };
