@@ -18,7 +18,6 @@ var lengthOfLongestSubstring = function(s) {
             dictionary[s[i]] = i;
         }
         string = s.substring(start,end);
-        console.log(string, start, end)
         if (string.length > longestString.length) {
             longestString = string;
         }
