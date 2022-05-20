@@ -3,26 +3,18 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-    let longestString = '';
-    let start = 0;
-    let end = 1;
-    let string = '';
-    let dictionary = {}
+    let start = 0; 
+    let maxLen = 0;
+    let dictionary = new Map();
     for (let i = 0; i < s.length; i++) {
-        if(dictionary[s[i]] === undefined) {
-            dictionary[s[i]] = i;
-        } else { 
-            if (!(start > dictionary[s[i]] + 1)) {
-                start = dictionary[s[i]] + 1;
-            }
-            dictionary[s[i]] = i;
+        let ch = s[i];
+        if (dictionary.has(ch)) {
+            start = dictionary.get(ch) + 1 > start ? dictionary.get(ch) + 1 : start;
         }
-        string = s.substring(start,end);
-        if (string.length > longestString.length) {
-            longestString = string;
+        dictionary.set(ch, i);
+        if ( i - start + 1 > maxLen) {
+            maxLen = i - start + 1;
         }
-        end++;
     }
-    
-    return longestString.length
+    return maxLen;
 };
