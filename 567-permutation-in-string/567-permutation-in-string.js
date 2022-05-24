@@ -4,12 +4,6 @@
  * @return {boolean}
  */
 var checkInclusion = function(s1, s2) {
-    // use a sliding window for letters in s2
-    // sliding window enlarges each time it encounters a matching letter in s1
-    // once sliding window reaches same length as s1, return true
-    // Sliding window resets in size if some conditions are met
-    // 1) if algo encounters  a letter in s2 not native to s1
-    // 2) we encounter a amtching letter however it appearnce exceeds the quantity of said letter in s1
     let letterBank = new Map();
     for (const letter of s1) {
         if (letterBank.get(letter) === undefined) {
