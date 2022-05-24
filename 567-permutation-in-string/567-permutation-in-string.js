@@ -52,7 +52,6 @@ var checkInclusion = function(s1, s2) {
             start = end;
         }
         end++;
-        console.log(`start=${start}, end=${end}, letter=${ch}`)
     }
     return false;
 };
