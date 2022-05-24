@@ -23,11 +23,6 @@ var checkInclusion = function(s1, s2) {
     for (let i = 0; i < s2.length; i++) {
         let ch = s2[i];
         if(letterBank.get(ch)) {
-            // this means we found a letter that matches!
-            // now log that letter into s2Bank
-            // however if that letter has appeared more than the quantity of that letter in s1
-            // change position of start until you encounter the same letter,
-            // while decrementing other letters
             if (s2LetterBank.get(ch) === undefined) {
                 s2LetterBank.set(ch, 0);
             }
