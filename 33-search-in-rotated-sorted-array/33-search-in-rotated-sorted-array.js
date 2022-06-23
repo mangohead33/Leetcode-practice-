@@ -21,7 +21,6 @@ var search = function(nums, target) {
             } else {
                 left = mid + 1;
             }
-            mid = findMid(left, right);
         } else {
             if (nums[mid] <= target && target <= nums[right]) {
                 // this mean target should not be in range of left and mid
@@ -29,8 +28,8 @@ var search = function(nums, target) {
             } else {
                 right = mid - 1;
             }
-            mid = findMid(left, right); 
         } 
+        mid = findMid(left, right);
     }
     return - 1;
     
