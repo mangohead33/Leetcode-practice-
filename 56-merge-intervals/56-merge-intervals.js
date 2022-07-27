@@ -3,14 +3,6 @@
  * @return {number[][]}
  */
 var merge = function(intervals) {
-    // can we assume that each interval is sorted
-    // meaning that the end if each interval is greater than the end prior to it?
-    // for now assume so
-    
-    //output is a new array of the merged intervals
-    // what constitutes a merge?
-    // if interval1E is qithin the range of interval 2 start and end
-    
     if (intervals.length === 1) {
         return intervals;
     }
