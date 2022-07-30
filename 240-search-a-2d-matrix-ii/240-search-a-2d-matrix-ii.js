@@ -4,7 +4,6 @@
  * @return {boolean}
  */
 var searchMatrix = function(matrix, target) {
-    
     let columnMax;
     let rowMax;
     const findMid = (s, e) => {
