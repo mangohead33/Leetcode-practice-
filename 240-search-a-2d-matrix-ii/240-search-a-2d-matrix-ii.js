@@ -22,10 +22,10 @@ var searchMatrix = function(matrix, target) {
             rowMax = i;
         }
     }
-    if (rowMax < 0) {
-        return false;
-        // target is too small and does not exist in matrix
-    }
+    // if (rowMax < 0) {
+    //     return false;
+    //     // target is too small and does not exist in matrix
+    // }
     for (let i = 0; i < matrix[0].length; i++) {
         let num = matrix[0][i];
         if (num === target) {
